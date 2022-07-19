@@ -1,0 +1,173 @@
+﻿<Window x:Class="MechanicWorkShop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MechanicWorkShop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000">
+    <Grid>
+        <Grid.Resources>
+            <local:CustomerDataConverter x:Key="Converter"/>
+            <Style TargetType="Label">
+                <Setter Property="Width" Value="120"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Text" Value=""/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+            </Style>
+            <Style TargetType="RadioButton">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="Margin" Value="0,7,7,5"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Margin" Value="5,5,0,5"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+            </Style>
+        </Grid.Resources>
+        <StackPanel  Orientation="Vertical">
+            <StackPanel x:Name="titlePanel" Orientation="Horizontal">
+                <Label FontWeight="Bold" Content="Go Mechanic" Width="360" FontSize="25" Margin="300,0,0,0" HorizontalAlignment="Center"  VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel x:Name="appointmentPrompt" Orientation="Horizontal">
+                <Label x:Name="lblAppointment" Content="Need Appointment?" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <RadioButton GroupName="rdAppointmentResponse" Name="Appointment_Yes" Content="Yes" Checked="showHideData_selectionChanged" ></RadioButton>
+                <RadioButton GroupName="rdAppointmentResponse" Name="Appointment_No" Content="No" Checked="showHideData_selectionChanged"></RadioButton>
+                <Label x:Name="lblAppointmentValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="appointmentPanel" Orientation="Horizontal">
+                <Label x:Name="lblAppointmentTime" Content="AppointmentTime" HorizontalAlignment="Left"  VerticalAlignment="Top" />
+                <ComboBox Name="cmbAppointmentTime" SelectionChanged="HandleAppointmentSelection" MinWidth="75" Text="-- Select Appt --" IsEditable="True" IsReadOnly="True"/>
+                <Label x:Name="lblAppointmentTimeValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="customerPanel" Orientation="Horizontal">
+                <Label FontWeight="Bold" Content="Customer Details" Width="780" HorizontalAlignment="Left"  VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel x:Name="fNamePanel" Orientation="Horizontal">
+                <Label x:Name="lblFname" Content="First Name" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <TextBox x:Name="txtFname" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5" TextChanged="txtglobal_TextChanged"/>
+                <Label x:Name="lblFnameValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="lNamePanel" Orientation="Horizontal">
+                <Label Name="lblLname" Content="Last Name" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <TextBox x:Name="txtLname" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5" TextChanged="txtglobal_TextChanged"/>
+                <Label Name="lblLnameValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="creditCardPanel" Orientation="Horizontal">
+                <Label x:Name="lblCreditCard">
+                    <TextBlock TextWrapping="WrapWithOverflow">
+                        Credit Card Number    (16 digits)
+                    </TextBlock>
+                </Label>
+                <TextBox x:Name="txtCreditCard" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5" TextChanged="txtglobal_TextChanged"/>
+                <Label x:Name="lblCreditCardValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel Name="vehiclePanel" Orientation="Horizontal">
+                <Label FontWeight="Bold" Content="Vehicle Details" Width="780" HorizontalAlignment="Left"  VerticalAlignment="Top" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="lblVehicleType" Content="Vehicle Type" HorizontalAlignment="Left"  VerticalAlignment="Top" />
+                <ComboBox Name="cmbVehicleType" SelectionChanged="HandleVehicleTypeCheck" MinWidth="125" Text="-- Vehicle Type --" IsEditable="False" IsReadOnly="True"/>
+                <Label x:Name="lblVehicleTypeValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="bikePanel" Orientation="Horizontal" Visibility="Collapsed">
+                <Label x:Name="lblBikeInput">
+                    <TextBlock TextWrapping="WrapWithOverflow">
+                        No. of Repair Jobs you want to do
+                    </TextBlock>
+                </Label>
+                <TextBox x:Name="txtBikeInput" HorizontalAlignment="Left" ToolTip="(0-5000)Sq. Yd." TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5" TextChanged="txtglobal_TextChanged"/>
+                <Label x:Name="lblBikeInputValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="carPanel" Orientation="Horizontal" Visibility="Collapsed">
+                <Label x:Name="lblCarInput">
+                    <TextBlock TextWrapping="WrapWithOverflow">
+                        No. of Service history your car have?
+                    </TextBlock>
+                </Label>
+                <TextBox x:Name="txtCarInput" HorizontalAlignment="Left" ToolTip="(0-5000)Sq. Yd." TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5" TextChanged="txtglobal_TextChanged"/>
+                <Label x:Name="lblCarInputValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="pickUptruckPanel" Orientation="Horizontal" Visibility="Collapsed">
+                <Label x:Name="lblTruckInput">
+                    <TextBlock TextWrapping="WrapWithOverflow">
+                        No. of Repair Operations you want to do
+                    </TextBlock>
+                </Label>
+                <TextBox x:Name="txtTruckInput" HorizontalAlignment="Left" ToolTip="(0-5000)Sq. Yd." TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5" TextChanged="txtglobal_TextChanged"/>
+                <Label x:Name="lblTruckInputValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="lastServicePanel" Orientation="Horizontal">
+                <Label x:Name="lblLastService">
+                    <TextBlock TextWrapping="WrapWithOverflow">
+                       Last Serviced (0-24 Months)
+                    </TextBlock>
+                </Label>
+                <TextBox x:Name="txtLastService" HorizontalAlignment="Left" ToolTip="(0-25)Sq. Yd." TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5" TextChanged="txtglobal_TextChanged"/>
+                <Label x:Name="lblLastServiceValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel x:Name="modelYearPanel" Orientation="Horizontal">
+                <Label x:Name="lblmodelYear">
+                    <TextBlock TextWrapping="WrapWithOverflow">
+                        Model year of your Vehicle (2022>Year>2004)
+                    </TextBlock>
+                </Label>
+                <TextBox x:Name="txtModelYear" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5">
+                    <TextBox.Text>
+                        <Binding Path="AppointmentObj.Customer.Vehicle.ModelYear">
+                            <Binding.ValidationRules>
+                                <local:YearRule Min="2005" Max="2021"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label x:Name="lblModelYearValidation" HorizontalAlignment="Left"  VerticalAlignment="Top" Visibility="Collapsed" Width="auto"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnSubmit" Content="Submit" Width="100" HorizontalAlignment="Left" Click="Button_Submit"/>
+                <Button Name="btnDisplay" Content="Display"  Margin="5" Click="btnDisplay_Click"/>
+            </StackPanel>
+            <StackPanel x:Name="searchPanel" Orientation="Horizontal" Margin="25,10,0,0">
+                <Label Name="lblSearch" Content="Customer Name" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="auto"/>
+                <TextBox x:Name="txtCustomerNameSearch" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,5,0,5" TextChanged="txtglobal_TextChanged"/>
+                <Button Name="btnSearch" Content="Search"  Margin="5" Click="btnSearch_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <DataGrid x:Name="CustomerDataGrid" AutoGenerateColumns="false" ItemsSource="{Binding Path=FinalList}" 
+                  Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="25,10,0,0" CanUserAddRows="False" CellEditEnding="CustomerDataGrid_CellEditEnding">
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="{Binding Path=., Converter={StaticResource Converter}}"/>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="auto"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Customer.Name}" Width="auto" />
+                        <DataGridTextColumn Header="Surname" Binding="{Binding Customer.Surname}" Width="auto" />
+                        <DataGridTextColumn Header="Credit Card#" Binding="{Binding Customer.CreditCard}" Width="auto" />
+                        <DataGridTextColumn Header="Vehicle Type" Binding="{Binding Customer.Vehicle.VehicleType}" Width="auto" />
+                        <DataGridTextColumn Header="Last Service(Months)" Binding="{Binding Customer.Vehicle.TimeSinceLastService}" Width="auto" />
+                        <DataGridTextColumn Header="Model year" Binding="{Binding Customer.Vehicle.ModelYear}" Width="auto" />
+                        <DataGridTextColumn Header="Duration(Days)" Binding="{Binding Customer.Vehicle.Duration}" Width="auto" />
+                        <DataGridTextColumn Header="Total Cost($)" Binding="{Binding Customer.Vehicle.TotalCost}" Width="auto" />
+                        <DataGridTextColumn Header="Workers" Binding="{Binding Customer.Vehicle.TotalWorkers}" Width="auto" />
+                        <DataGridTemplateColumn Header="Delete">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="DeleteData" Height="20" Width="auto" Margin="2">Delete</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

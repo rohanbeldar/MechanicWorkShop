@@ -1,0 +1,32 @@
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MainWindow.g.cs
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\App.g.cs
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop_MarkupCompile.cache
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop_MarkupCompile.lref
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop.exe
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop.pdb
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\bin\Debug\MechanicWorkShop.exe.config
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\bin\Debug\MechanicWorkShop.exe
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\bin\Debug\MechanicWorkShop.pdb
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MainWindow.baml
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop.g.resources
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop.Properties.Resources.resources
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop.csproj.GenerateResource.cache
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop.csproj.CoreCompileInputs.cache
+C:\Users\Kushal Trivedi\source\repos\MechanicWorkShop\obj\Debug\MechanicWorkShop.csproj.AssemblyReference.cache
+D:\MechanicWorkShop\bin\Debug\MechanicWorkShop.exe.config
+D:\MechanicWorkShop\bin\Debug\MechanicWorkShop.exe
+D:\MechanicWorkShop\bin\Debug\MechanicWorkShop.pdb
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop.csproj.AssemblyReference.cache
+D:\MechanicWorkShop\obj\Debug\MainWindow.g.cs
+D:\MechanicWorkShop\obj\Debug\App.g.cs
+D:\MechanicWorkShop\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop_MarkupCompile.cache
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop_MarkupCompile.lref
+D:\MechanicWorkShop\obj\Debug\MainWindow.baml
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop.g.resources
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop.Properties.Resources.resources
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop.csproj.GenerateResource.cache
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop.csproj.CoreCompileInputs.cache
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop.exe
+D:\MechanicWorkShop\obj\Debug\MechanicWorkShop.pdb

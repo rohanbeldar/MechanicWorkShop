@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppointmentList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Appointments>
+    <Appointment>
+      <Time>4 PM</Time>
+      <Customer>
+        <Name>Kushal</Name>
+        <Surname>Trivedi</Surname>
+        <CreditCard>1111 XXXX XXXX 1111</CreditCard>
+        <Vehicle xsi:type="PickUpTruck">
+          <TimeSinceLastService>2</TimeSinceLastService>
+          <ModelYear>2020</ModelYear>
+          <Duration>0</Duration>
+          <TotalCost>8080</TotalCost>
+          <TotalWorkers>0</TotalWorkers>
+          <VehicleType>Pick-up Truck</VehicleType>
+          <NumOfOperations>0</NumOfOperations>
+        </Vehicle>
+      </Customer>
+    </Appointment>
+  </Appointments>
+</AppointmentList>
